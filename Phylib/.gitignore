@@ -1,0 +1,34 @@
+# Build output
+build/
+out/
+cmake-build-*/
+*.o
+*.a
+*.so
+*.dll
+*.exe
+
+# CMake generated
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.user
+*.sln
+*.vcxproj*
+*.xcodeproj/
+
+# macOS
+.DS_Store
+
+# Demo assets (user records themselves)
+demo.gif
+demo.mp4
+screenshot.png
