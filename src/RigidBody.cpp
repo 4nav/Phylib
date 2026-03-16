@@ -35,9 +35,8 @@ void RigidBody::update(float dt)
 {
     if (isStatic) return;
 
-    // Semi-implicit Euler:
     //   1. Update velocity using current acceleration
-    //   2. Update position using the *new* velocity
+    //   2. Update position using the new velocity
     velocity += acceleration * dt;
 
     // Apply linear damping: exponential decay is approximated as pow(factor, dt).

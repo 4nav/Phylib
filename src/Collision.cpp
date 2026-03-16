@@ -41,7 +41,6 @@ CollisionManifold Collision::testAABB(RigidBody& a, RigidBody& b)
     return m;
 }
 
-// ─── Impulse-based resolution ────────────────────────────────────────────────
 
 void Collision::resolve(CollisionManifold& manifold)
 {

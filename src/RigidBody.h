@@ -10,11 +10,8 @@ struct AABB
 };
 
 /// A 2D rigid body represented as a rectangle.
-///
-/// Physics integration uses the Semi-Implicit (Symplectic) Euler method:
 ///   velocity += acceleration * dt   (update velocity first)
 ///   position += velocity * dt       (then use the *new* velocity)
-/// This conserves energy better than forward Euler for oscillatory systems.
 class RigidBody
 {
 public:

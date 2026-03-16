@@ -3,9 +3,7 @@
 #include <cmath>
 #include <algorithm>
 
-// ═════════════════════════════════════════════════════════════════════════════
 // SimplePendulum
-// ═════════════════════════════════════════════════════════════════════════════
 
 SimplePendulum::SimplePendulum(glm::vec2 anch,
                                float     len,
@@ -27,11 +25,10 @@ SimplePendulum::SimplePendulum(glm::vec2 anch,
 void SimplePendulum::update(float dt, float g)
 {
     // Equation of motion:  α = -(g / L) * sin(θ)
-    // Semi-implicit Euler: update ω first, then θ
     angularAcc  = -(g / length) * std::sin(angle);
     angularVel += angularAcc * dt;
 
-    // Angular damping (approximate per-second decay)
+    // Angular damping 
     float dampFactor = 1.0f - (1.0f - damping) * dt;
     angularVel *= std::max(0.0f, std::min(1.0f, dampFactor));
 
@@ -47,9 +44,7 @@ glm::vec2 SimplePendulum::getBobPosition() const
 }
 
 
-// ═════════════════════════════════════════════════════════════════════════════
 // DoublePendulum
-// ═════════════════════════════════════════════════════════════════════════════
 
 DoublePendulum::DoublePendulum(glm::vec2 anch,
                                float l1, float l2,
@@ -67,7 +62,6 @@ DoublePendulum::DoublePendulum(glm::vec2 anch,
     , color(col)
 {}
 
-// ─── RK4 state derivative ─────────────────────────────────────────────────────
 /// State vector: [theta1, omega1, theta2, omega2]
 /// Returns the derivative [dtheta1, dalpha1, dtheta2, dalpha2]
 static void doublePendulumDerivative(
